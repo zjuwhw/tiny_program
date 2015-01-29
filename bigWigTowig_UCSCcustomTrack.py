@@ -30,7 +30,7 @@ if __name__ == '__main__':
     output = sys.stdout
     ylim = "25"
     
-    opts,args=getopt.getopt(sys.argv[1:],"",["output=","ylim"])
+    opts,args=getopt.getopt(sys.argv[1:],"",["output=","ylim="])
     for o,a in opts:
         if o=='--output':
             output = open(a, "w")
