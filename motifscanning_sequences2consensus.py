@@ -4,7 +4,7 @@
 import os, sys
 inputfile = sys.argv[1]
 f1 = open(inputfile)
-IUPAC = {"A":"A", "C":"C", "G":"G", "T":"T ", "AG":"R", "CT":"Y", "CG":"S", "AT":"W", "GT":"K", "AC":"M", "CGT":"B", "AGT":"D", "ACT":"H", "ACG":"V", "ACGT":"N"}
+IUPAC = {"A":"A", "C":"C", "G":"G", "T":"T", "AG":"R", "CT":"Y", "CG":"S", "AT":"W", "GT":"K", "AC":"M", "CGT":"B", "AGT":"D", "ACT":"H", "ACG":"V", "ACGT":"N"}
 consensus_container = {}
 consensus_string = ""
 consensus_IUPAC = ""
