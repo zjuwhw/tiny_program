@@ -1,0 +1,31 @@
+#!/usr/bin/env python
+
+template='''
+#!/bin/bash
+#PBS -N %s
+#PBS -l walltime=%d:00:00
+#PBS -l select=1:ncpus=10:intel=True:mem=102400mb
+#PBS -o /shares/compbio/Group-Yang/huanwei.wang/Tmp/qsub.out
+#PBS -e /shares/compbio/Group-Yang/huanwei.wang/Tmp/qsub.err
+%s
+'''
+
+import argparse
+import os
+
+
+parser = argparse.ArgumentParser(description='A python wrapper for qsub job submission.')
+parser.add_argument('--name', '-n', type=str, default = "qsub-job",
+    help='qsub job name')
+parser.add_argument('--walltime', '-w',type=int, default=1,
+    help='wall time')
+parser.add_argument('--command', '-c', type=str, required = True,
+	help='command line')
+parser.add_argument('--run', '-r', default=False, help='run qsub script or not')
+args = parser.parse_args()
+
+with open(args.name + ".sh", "w") as f:
+	f.write(template % (args.name, args.walltime, args.command))
+
+if args.run:
+	os.system("qsub .sh")
