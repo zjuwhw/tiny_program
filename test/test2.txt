@@ -1,0 +1,4 @@
+bcd 1
+bcd 5
+bcd 2
+bcd 10
